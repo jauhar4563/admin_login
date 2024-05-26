@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-mongoose.connect("mongodb://localhost:27017/user_management_system")
+mongoose.connect("mongodb+srv://jauharp02:7510529354Jauhar@cluster0.knvvzvs.mongodb.net/user_management_system")
 
 
 const express=require('express')
@@ -17,7 +17,7 @@ app.use('/',userRoute)
 const adminRoute = require('./routes/adminRoute')
 app.use('/admin',adminRoute);
 
-app.listen(4000,()=>{
-    console.log("server is running...@http://localhost:3000/")
+app.listen(8001,()=>{
+    console.log("server is running...@http://localhost:8001/")
 
 })
