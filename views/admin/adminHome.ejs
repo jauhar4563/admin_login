@@ -1,0 +1,67 @@
+<%- include('../layouts/header.ejs')%>
+
+<!-- <h1>Welcome <%=admin.name%></h1>
+
+<a href="/admin/dashboard">dashboard</a>
+<br><br><br>
+<form action="/admin/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+<br><br>
+<table style="width: 50%;">
+    <tr>
+        <td><img src="/userImages/<%=admin.image%>" width="100px" height="100px" alt=""></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><%=admin.email%></td>
+    </tr>
+    <tr>
+        <td>Mobile</td>
+        <td><%=admin.mobile%></td>
+    </tr>
+</table> -->
+
+<section class="vh-100" style="background-color: #eee; overflow: hidden;">
+    <nav class="navbar p-3 navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Admin Home</span>
+        <form action="/admin/logout" method="post">
+            <!-- <button type="submit">Logout</button> -->
+            <button type="submit" class="btn btn-primary">Logout</button>
+    
+        </form>
+        
+      </nav>
+    
+    <div class="container py-5 h-250">
+        
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 col-xl-4">
+  
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body text-center">
+              <div class="mt-3 mb-4">
+                <img src="/userImages/<%=admin.image%>"  alt="/userImages/<%=admin.image%>"
+                  class="rounded-circle img-fluid" style="width: 200px; height: 200px;" />
+              </div>
+              <h4 class="mb-2"><<%=admin.name%></h4>
+              <p class="text-muted mb-4"> <%= admin.email %></p>
+
+                  <p class="text-muted mb-4">Mobile <span class="mx-2">|</span> <%= admin.mobile %></p>
+
+                  
+                  <a href="/admin/dashboard"><button type="button" class="btn btn-primary btn-rounded btn-lg">
+                    Dashboard          </button></a>
+                </div>
+              
+     
+            </div>
+          </div>
+  
+        </div>
+      </div>
+      
+  </section>
+
+<%- include('../layouts/footer.ejs')%>

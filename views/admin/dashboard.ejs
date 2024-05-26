@@ -1,0 +1,129 @@
+<%- include('../layouts/header.ejs')%>
+
+<nav class="navbar p-3 navbar-light bg-light">
+    <a href="/admin/home"><button type="submit" class="btn btn-primary">Go back Home</button>
+    </a>
+    <span class="navbar-brand mb-0 h1 text-center">DashBoard</span>
+
+    <a href="/admin/newUser"><button type="submit" class="btn btn-primary">Add New User</button>
+    </a>
+  </nav>
+
+
+
+<br><br><br>
+<div class="d-flex justify-content-center mb-5">
+    <form action="">
+        <div class="input-group">
+            <div class="form-outline">
+                <input type="search" placeholder="search Username,email,mobile" class="form-control" name="search">
+    
+            </div>
+            <input type="submit" value="search" class="btn btn-primary">
+    
+          </div>
+    </form>
+    
+</div>
+
+
+<!-- <table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Image</th>
+
+    </tr>
+    <%
+    if(users.length>0){
+        for(let i=0;i<users.length;i++){
+            %>
+            <tr>
+            <td><%=users[i].name%></td>
+            <td><%=users[i].email%></td>
+            <td><%=users[i].mobile%></td>
+            <td><img src="/userImages/<%=users[i].image%>" width="50px" height="50px" alt="<%=users[i].image%>"></td>
+            <td><a href="/admin/editUser?id=<%= users[i]._id%>">edit</a>
+                <a href="/admin/deleteUser?id=<%= users[i]._id%>">delete</a></td>
+            </tr>
+            <%
+        }
+    }
+    else{
+        %>
+        
+        <tr>
+            <td colspan="5">User Not Found</td>
+        </tr>
+        <%
+    }
+    %>
+
+   
+</table> -->
+
+<table class="table align-middle mb-0 bg-white"  style="row-gap: 4;">
+    <thead class="bg-light">
+      <tr>
+        <th>Profile</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <%
+    if(users.length>0){
+        for(let i=0;i<users.length;i++){
+            %>
+    <tbody>
+      <tr>
+        <td>
+            <img
+            src="/userImages/<%=users[i].image%>"
+            alt=""
+            style="width: 45px; height: 45px"
+            class="rounded-circle"
+            />
+        </td>
+        <td>
+          <!-- <div class="d-flex align-items-center"> -->
+   
+            <div class="ms-3">
+              <p class="fw-bold mb-3"><%=users[i].name%></p>
+            </div>
+          <!-- </div> -->
+        </td>
+        <td>
+          <p class="fw-normal mb-1"><%=users[i].email%></p>
+        </td>
+        <td>
+            <p class="fw-normal mb-1"><%=users[i].mobile%></p>
+        </td>
+     
+        
+        <td>
+            <a href="/admin/editUser?id=<%= users[i]._id%>"><button type="button" class="btn btn-danger">edit</button>
+                </a>
+            <a href="/admin/deleteUser?id=<%= users[i]._id%>"><button type="button" class="btn btn-light">delete</button>
+                </a>
+        </td>
+      </tr>
+      
+    </tbody>
+    <%
+    }
+}
+else{
+    %>
+    
+    <tr>
+        <td colspan="5">User Not Found</td>
+    </tr>
+    <%
+}
+%>
+  </table>
+
+<%- include('../layouts/footer.ejs')%>
